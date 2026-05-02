@@ -1730,10 +1730,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         filterMyths(event.target.value);
     });
 
-    document.getElementById("start-quiz-btn")?.addEventListener("click", async () => {
-        if (state.quizQuestions.length === 0) {
+    document.getElementById("start-quiz-btn")?.addEventListener("click", async (event) => {
+        const btn = event.currentTarget;
+        const originalText = btn.innerHTML;
+        
+        if (!state.allQuizQuestions || state.allQuizQuestions.length === 0) {
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Loading...`;
+            btn.disabled = true;
             await loadQuizQuestions();
+            btn.innerHTML = originalText;
+            btn.disabled = false;
         }
+        
         resetQuiz();
         document.getElementById("quiz-intro")?.classList.add("hidden");
         document.getElementById("quiz-active")?.classList.remove("hidden");
