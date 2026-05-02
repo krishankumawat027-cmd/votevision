@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const API_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" 
         ? "http://localhost:8080" 
-        : "https://votevision-backend.onrender.com";
+        : "https://votevision-7lg5.onrender.com";
 
     const SUPABASE_URL = "https://cnfscdacqfkxrwcebhji.supabase.co";
     const SUPABASE_ANON_KEY = "sb_publishable_ufREQ5Zc_0ZX7Gc5QtR46w_-Dy1eJxd";
