@@ -1,0 +1,56 @@
+{
+    "nav_home": "होम",
+    "nav_about": "हमारे बारे में",
+    "nav_process": "चुनाव प्रक्रिया",
+    "nav_voter_rights": "मतदाता अधिकार",
+    "nav_booth_finder": "बूथ खोजें",
+    "nav_readiness": "तैयारी",
+    "nav_help_center": "सहायता केंद्र",
+    "nav_profile": "प्रोफ़ाइल",
+    "nav_logout": "लॉगआउट",
+    "nav_login_register": "लॉगिन / पंजीकरण",
+    
+    "hero_title": "वोटविज़न",
+    "hero_subtitle": "आपका स्मार्ट चुनाव सहायक",
+    "hero_desc": "चुनाव प्रक्रिया को सरल, पारदर्शी और सुलभ बनाकर नागरिकों को सशक्त बनाना। चुनाव को समझें, समयसीमा ट्रैक करें और स्मार्ट वोट दें।",
+    "hero_btn_login": "लॉगिन करें",
+    "hero_btn_register": "अभी पंजीकरण करें",
+    
+    "feat_title": "मंच की विशेषताएं",
+    "feat_desc": "इन बुद्धिमान चुनाव उपकरणों तक पहुंचने के लिए एक खाता बनाएं।",
+    
+    "feat_chatbot": "एआई चैटबॉट",
+    "feat_chatbot_desc": "हमारे एआई से चुनाव संबंधी कोई भी प्रश्न पूछें।",
+    "feat_compare": "उम्मीदवारों की तुलना करें",
+    "feat_compare_desc": "स्थानीय नेताओं की आमने-सामने तुलना।",
+    "feat_fakenews": "फ़ेक न्यूज़ चेकर",
+    "feat_fakenews_desc": "राजनीतिक दावों को तुरंत सत्यापित करें।",
+    "hero_btn_learn": "अधिक जानें",
+    
+    "feat_chatbot": "एआई चुनाव चैटबॉट",
+    "feat_booth": "स्मार्ट बूथ खोजक",
+    "feat_readiness": "मतदाता तैयारी",
+    "feat_help": "सहायता और शिकायत",
+    
+    "btn_submit": "सबमिट करें",
+    "btn_search": "खोजें",
+    "btn_login": "लॉगिन",
+    "btn_register": "पंजीकरण",
+    
+    "help_center_title": "सहायता और शिकायत केंद्र",
+    "help_center_subtitle": "चुनाव संबंधी समस्याओं का समाधान करें या आधिकारिक शिकायत दर्ज करें।",
+    "help_emergency": "आपातकालीन सहायता",
+    "help_ai_assistant": "एआई सहायता",
+    "help_file_complaint": "शिकायत दर्ज करें",
+    "help_complaint_history": "आपका शिकायत इतिहास",
+    "help_btn_ask": "पूछें",
+    
+    "dashboard_welcome": "स्वागत है",
+    "dashboard_title": "आपका चुनाव डैशबोर्ड",
+    
+    "auth_login_title": "लॉगिन",
+    "auth_register_title": "पंजीकरण",
+    "auth_name_label": "पूरा नाम",
+    "auth_email_label": "ईमेल",
+    "auth_password_label": "पासवर्ड"
+}

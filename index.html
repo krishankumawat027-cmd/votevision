@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteVision - Your Smart Election Assistant</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Top Navbar -->
+    <nav class="navbar sticky-navbar">
+        <div class="nav-container">
+            <div class="nav-brand" id="logo-btn" style="cursor:pointer">
+                <i class="fa-solid fa-check-to-slot"></i> VoteVision
+            </div>
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <!-- Public Links -->
+                <li class="nav-item public-only active" data-target="landing-page" data-translate="nav_home">Home</li>
+                <li class="nav-item public-only" data-target="landing-page" data-translate="nav_about">About</li>
+                
+                <!-- Private Links -->
+                <li class="nav-item private-only hidden" data-target="dashboard-page" data-translate="nav_dashboard">Dashboard</li>
+                <li class="nav-item private-only hidden" data-target="process-page" data-translate="nav_process">Process</li>
+                <li class="nav-item private-only hidden" data-target="complaint-page" data-translate="nav_complaint">Complaint</li>
+                <li class="nav-item private-only hidden" data-target="reminders-page" data-translate="nav_reminders">Reminders</li>
+                <li class="nav-item private-only hidden" data-target="myth-facts-page" data-translate="nav_myth_facts">Myth vs Fact</li>
+                <li class="nav-item private-only hidden" data-target="quiz-page" data-translate="nav_quiz">Quiz Mode</li>
+                <li class="nav-item private-only hidden" data-target="voter-rights-page" data-translate="nav_voter_rights">Voter Rights</li>
+                <li class="nav-item private-only hidden" data-target="smart-finder-page" data-translate="nav_booth_finder">Booth Finder</li>
+                <li class="nav-item private-only hidden" data-target="readiness-page" data-translate="nav_readiness">Readiness</li>
+                <li class="nav-item private-only hidden" data-target="help-center-page" data-translate="nav_help_center">Help Center</li>
+                
+                <li class="nav-item private-only hidden nav-dropdown" id="nav-profile-container">
+                    <span id="nav-profile-btn"><i class="fa-solid fa-user"></i> <span data-translate="nav_profile">Profile</span> <i class="fa-solid fa-caret-down text-sm"></i></span>
+                    <ul class="dropdown-menu hidden" id="profile-dropdown">
+                        <li onclick="navigateTo('profile-page')" data-translate="nav_profile">View Profile</li>
+                        <li onclick="navigateTo('settings-page')">Settings</li>
+                        <li id="logout-btn" data-translate="nav_logout">Logout</li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item public-only" id="nav-auth-btn" data-translate="nav_login_register">Login / Register</li>
+                
+                <li style="margin-left: 10px;">
+                    <select id="language-select" class="form-control" style="padding: 2px 5px; height: auto; display: inline-block; width: auto;">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </li>
+                <li id="theme-toggle" class="nav-icon"><i class="fa-solid fa-moon"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="pages-container">
+            
+            <!-- ============================================== -->
+            <!-- 1. PUBLIC LANDING PAGE (Unauthenticated Only) -->
+            <!-- ============================================== -->
+            <section id="landing-page" class="page active">
+                
+                <div class="hero-section text-center">
+                    <h1 class="hero-title gradient-text" data-translate="hero_title" style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; margin-bottom: 10px;">VoteVision</h1>
+                    <h3 class="hero-subtitle" data-translate="hero_subtitle">Your Smart Election Assistant</h3>
+                    <p class="hero-desc" data-translate="hero_desc">Empowering citizens by making the election process simple, transparent, and accessible. Understand elections, track timelines, and vote smart.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-lg" id="openLoginBtn" data-translate="hero_btn_login">Login to Access</button>
+                        <button class="btn btn-secondary btn-lg" id="openSignupBtn" data-translate="hero_btn_register">Register Now</button>
+                    </div>
+                </div>
+
+                <!-- Feature Previews (Static) -->
+                <section class="home-section">
+                    <h2 class="section-title text-center" data-translate="feat_title">Platform Features</h2>
+                    <p class="text-center text-secondary mb-4" data-translate="feat_desc">Create an account to access these intelligent election tools.</p>
+                    <div class="grid-3-col mt-4">
+                        <div class="card text-center">
+                            <i class="fa-solid fa-robot fa-2x mb-2 blue"></i>
+                            <h4 data-translate="feat_chatbot">AI Chatbot</h4>
+                            <p data-translate="feat_chatbot_desc">Ask our AI any election-related question.</p>
+                        </div>
+                        <div class="card text-center">
+                            <i class="fa-solid fa-users-viewfinder fa-2x mb-2 green-text"></i>
+                            <h4 data-translate="feat_compare">Compare Candidates</h4>
+                            <p data-translate="feat_compare_desc">Side-by-side comparison of local leaders.</p>
+                        </div>
+                        <div class="card text-center">
+                            <i class="fa-solid fa-shield-halved fa-2x mb-2 dark"></i>
+                            <h4 data-translate="feat_fakenews">Fake News Checker</h4>
+                            <p data-translate="feat_fakenews_desc">Verify political claims instantly.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How It Works -->
+                <section class="home-section light-bg p-4 radius-lg">
+                    <h2 class="section-title text-center">How It Works</h2>
+                    <div class="grid-4-col text-center mt-4">
+                        <div class="step-card">
+                            <div class="step-num bg-saffron">1</div>
+                            <h4>Register</h4>
+                            <p>Create your secure profile.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num bg-blue">2</div>
+                            <h4>Ask & Learn</h4>
+                            <p>Use our AI Chatbot & Guides.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num bg-green">3</div>
+                            <h4>Verify</h4>
+                            <p>Check candidate facts & timeline.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num bg-dark">4</div>
+                            <h4>Vote Smart</h4>
+                            <p>Make an informed choice.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="site-footer">
+                    <div class="footer-grid">
+                        <div class="footer-about">
+                            <h3><i class="fa-solid fa-check-to-slot"></i> VoteVision</h3>
+                            <p>Your smart, AI-powered election assistant. Empowering every citizen to make an informed choice.</p>
+                        </div>
+                        <div class="footer-legal">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-social">
+                            <h4>Follow Us</h4>
+                            <div class="social-icons">
+                                <a href="https://x.com/krishan_ku30315" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/krishan-kumawat-80b682391" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://www.instagram.com/_krishankumawat?igsh=Z2V3Ynh1ZWl6Nzh3" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 VoteVision. An initiative for democratic awareness.</p>
+                    </div>
+                </footer>
+            </section>
+
+
+            <!-- ============================================== -->
+            <!-- 2. PRIVATE DASHBOARD (Authenticated Only) -->
+            <!-- ============================================== -->
+            <section id="dashboard-page" class="page">
+                <div class="page-header">
+                    <h2>Welcome, <span id="welcome-name" class="saffron-text">krishan kumawat</span>! <i class="fa-solid fa-hand-sparkles"></i></h2>
+                    <p class="text-secondary">Here are your smart election tools for today.</p>
+                </div>
+                
+                <div class="card mt-4 border-saffron bg-saffron-light" style="display: flex; align-items: center; gap: 20px; max-width: 800px; margin: 0 auto;">
+                    <i class="fa-solid fa-bullhorn fa-2x saffron"></i>
+                    <div>
+                        <strong>Upcoming General Elections 2026</strong>
+                        <br>
+                        <span class="text-sm">Phase 1 voting starts on May 30, 2026. Make sure your voter ID is ready!</span>
+                    </div>
+                </div>
+
+                <section class="mt-5">
+                    <h3>Quick Access</h3>
+                    <div class="grid-features mt-3">
+                        <div class="card feature-card" onclick="navigateTo('chatbot-page')">
+                            <i class="fa-solid fa-robot feature-icon blue"></i>
+                            <h4 class="text-sm" data-translate="feat_chatbot">AI FAQ Assistant</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('process-page')">
+                            <i class="fa-solid fa-shoe-prints feature-icon saffron"></i>
+                            <h4 class="text-sm" data-translate="feat_process">Election Process</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('first-time-page')">
+                            <i class="fa-solid fa-user-graduate feature-icon green"></i>
+                            <h4 class="text-sm" data-translate="feat_first_time">First-Time Voter</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('eligibility-page')">
+                            <i class="fa-solid fa-id-badge feature-icon dark"></i>
+                            <h4 class="text-sm" data-translate="feat_eligibility">Eligibility Checker</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('timeline-page')">
+                            <i class="fa-solid fa-calendar-days feature-icon blue"></i>
+                            <h4 class="text-sm" data-translate="feat_timeline">Election Timeline</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('smart-finder-page')">
+                            <i class="fa-solid fa-map-location-dot feature-icon saffron"></i>
+                            <h4 class="text-sm" data-translate="feat_booth">Booth Finder</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('candidate-page')">
+                            <i class="fa-solid fa-users-viewfinder feature-icon green"></i>
+                            <h4 class="text-sm" data-translate="feat_compare">Compare Candidates</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('fakenews-page')">
+                            <i class="fa-solid fa-shield-halved feature-icon dark"></i>
+                            <h4 class="text-sm" data-translate="feat_fakenews">Fake News Checker</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('help-center-page')">
+                            <i class="fa-solid fa-bullhorn feature-icon blue"></i>
+                            <h4 class="text-sm" data-translate="feat_complaint">Complaint Assistant</h4>
+                        </div>
+                        <div class="card feature-card" onclick="navigateTo('accessibility-page')">
+                            <i class="fa-solid fa-universal-access feature-icon saffron"></i>
+                            <h4 class="text-sm" data-translate="feat_accessibility">Accessibility</h4>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1. Voting Readiness Progress -->
+                <section class="mt-5">
+                    <h3>Voting Readiness</h3>
+                    <div class="card mt-3 hover-card" data-dashboard-link="readiness-page" style="cursor:pointer;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-bold">Your Progress</span>
+                            <span class="blue fw-bold">75%</span>
+                        </div>
+                        <div style="height: 10px; background: var(--border-color); border-radius: 5px; overflow: hidden; margin-bottom: 15px;">
+                            <div style="width: 75%; height: 100%; background: var(--blue); border-radius: 5px; transition: width 1s ease;"></div>
+                        </div>
+                        <div class="grid-4-col text-sm" style="margin-top: 10px; gap: 10px;">
+                            <div><i class="fa-solid fa-circle-check green-text"></i> Registration</div>
+                            <div><i class="fa-solid fa-circle-check green-text"></i> Documents</div>
+                            <div><i class="fa-solid fa-circle-check green-text"></i> Booth Checked</div>
+                            <div class="text-secondary"><i class="fa-regular fa-circle"></i> Reminder</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Dashboard Analytics Cards -->
+                <section class="mt-5">
+                    <h3>My Dashboard Analytics</h3>
+                    <div class="grid-4-col mt-3">
+                        <div class="card text-center hover-card" data-dashboard-link="reminders-page" style="cursor:pointer;">
+                            <h2 class="blue" style="font-size: 2.5rem;">4</h2>
+                            <p class="text-secondary">Total Reminders</p>
+                        </div>
+                        <div class="card text-center hover-card" data-dashboard-link="complaint-page" style="cursor:pointer;">
+                            <h2 class="saffron" style="font-size: 2.5rem;">1</h2>
+                            <p class="text-secondary">Complaints</p>
+                        </div>
+                        <div class="card text-center hover-card" data-dashboard-link="chatbot-page" style="cursor:pointer;">
+                            <h2 class="green" style="font-size: 2.5rem;">12</h2>
+                            <p class="text-secondary">AI Chats</p>
+                        </div>
+                        <div class="card text-center hover-card" data-dashboard-link="quiz-page" style="cursor:pointer;">
+                            <h2 class="blue" style="font-size: 2.5rem;">3</h2>
+                            <p class="text-secondary">Quiz Attempts</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Upcoming Dates & My Booth (Side by Side) -->
+                <div class="grid-2-col mt-5">
+                    <section>
+                        <h3>Important Dates</h3>
+                        <div class="card mt-3 hover-card" data-dashboard-link="timeline-page" style="cursor:pointer;">
+                            <div class="timeline-ui" style="margin: 10px 0;">
+                                <div class="timeline-item" style="margin-bottom: 15px;">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <strong>May 30, 2026</strong> <span class="bg-saffron text-white text-sm" style="padding: 2px 6px; border-radius:4px; font-weight:bold; margin-left:8px;">Deadline</span><br>
+                                        <span class="text-sm text-secondary">Voter Registration Ends</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" style="margin-bottom: 15px;">
+                                    <div class="timeline-marker" style="background-color: var(--blue);"></div>
+                                    <div class="timeline-content">
+                                        <strong>May 30, 2026</strong><br>
+                                        <span class="text-sm text-secondary">Phase 1 Voting Day</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" style="margin-bottom: 0;">
+                                    <div class="timeline-marker" style="background-color: var(--green);"></div>
+                                    <div class="timeline-content">
+                                        <strong>May 30, 2026</strong><br>
+                                        <span class="text-sm text-secondary">Results Declared</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>My Saved Booth</h3>
+                        <div class="card mt-3 hover-card text-center" style="display:flex; flex-direction:column; justify-content:center;">
+                            <i class="fa-solid fa-building-flag fa-3x saffron mb-3"></i>
+                            <h4 class="mb-2">St. Xavier's High School</h4>
+                            <p class="text-sm text-secondary mb-3">Room No 4, Mumbai South</p>
+                            <button class="btn btn-secondary w-100" onclick="navigateTo('smart-finder-page')"><i class="fa-solid fa-map"></i> Open Map</button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 4. Election News & Tips -->
+                <div class="grid-2-col mt-5">
+                    <section>
+                        <h3>Election News & Updates</h3>
+                        <div class="card mt-3 hover-card" data-dashboard-link="help-center-page" style="cursor:pointer;">
+                            <span class="bg-saffron text-white text-sm mb-2 d-inline-block" style="padding: 3px 8px; border-radius:4px; font-weight:bold;">Trending</span>
+                            <h4 class="mb-2">ECI announces new digital voter slip rules</h4>
+                            <p class="text-sm text-secondary mb-3">You can now use your digitally verified voter slip via the DigiLocker app at all polling booths.</p>
+                            <button class="btn btn-sm btn-secondary w-100">Read More</button>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Quick Voting Tips</h3>
+                        <div class="card mt-3 hover-card" data-dashboard-link="voter-rights-page" style="cursor:pointer;">
+                            <ul style="list-style: none; padding: 0;">
+                                <li class="mb-3"><i class="fa-solid fa-id-card blue" style="margin-right: 8px;"></i> Carry valid ID Proof (Voter ID, Aadhar, PAN)</li>
+                                <li class="mb-3"><i class="fa-solid fa-clock saffron" style="margin-right: 8px;"></i> Reach early to avoid long queues</li>
+                                <li><i class="fa-solid fa-mobile-screen green" style="margin-right: 8px;"></i> Phones are strictly prohibited inside the booth</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 5. AI Recommendations & Quiz Progress -->
+                <div class="grid-2-col mt-5">
+                    <section>
+                        <h3>AI Recommendations</h3>
+                        <div class="card mt-3 hover-card bg-blue-light" data-dashboard-link="myth-facts-page" style="border: 1px solid var(--blue); cursor:pointer;">
+                            <h4 class="blue mb-3"><i class="fa-solid fa-wand-magic-sparkles"></i> Suggested for you</h4>
+                            <div class="d-flex align-items-center justify-content-between mb-3" style="background: var(--surface-color); padding: 10px; border-radius: 8px;">
+                                <span class="text-sm fw-bold"><i class="fa-solid fa-users-viewfinder green-text"></i> Review Candidates</span>
+                                <button class="btn btn-sm btn-primary" onclick="navigateTo('candidate-page')">Go</button>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between" style="background: var(--surface-color); padding: 10px; border-radius: 8px;">
+                                <span class="text-sm fw-bold"><i class="fa-solid fa-shield-halved dark"></i> Verify fake news</span>
+                                <button class="btn btn-sm btn-primary" onclick="navigateTo('fakenews-page')">Verify</button>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Election Quiz Progress</h3>
+                        <div class="card mt-3 hover-card text-center" data-dashboard-link="quiz-page" style="display:flex; flex-direction:column; justify-content:center; cursor:pointer;">
+                            <div class="d-flex justify-content-between align-items-center w-100 mb-3" style="padding: 0 20px;">
+                                <div>
+                                    <h2 class="green">80%</h2>
+                                    <p class="text-sm text-secondary">Best Score</p>
+                                </div>
+                                <div style="width: 2px; height: 40px; background: var(--border-color);"></div>
+                                <div>
+                                    <h2 class="blue">3</h2>
+                                    <p class="text-sm text-secondary">Completed</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100" onclick="navigateTo('quiz-page')">Take Next Quiz</button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 6. Complaint Status & Activity -->
+                <section class="mt-5">
+                    <h3>Recent Activity & Status</h3>
+                    <div class="grid-2-col mt-3">
+                        <div class="card hover-card" data-dashboard-link="complaint-page" style="cursor:pointer;">
+                            <h4 class="mb-3">Complaint Status</h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="mb-1 text-sm">Missing Name in Voter List</h5>
+                                    <p class="text-sm text-secondary">ID: #E29384</p>
+                                </div>
+                                <span class="bg-saffron text-white text-sm" style="padding: 5px 12px; border-radius:20px; font-weight:bold;">Under Review</span>
+                            </div>
+                        </div>
+                        <div class="card hover-card" data-dashboard-link="readiness-page" style="cursor:pointer;">
+                            <h4 class="mb-3">My Activity</h4>
+                            <ul style="list-style:none; font-size:0.9rem;">
+                                <li class="mb-2"><i class="fa-solid fa-check green-text"></i> Eligibility Check Completed</li>
+                                <li class="mb-2"><i class="fa-solid fa-check green-text"></i> Fake News Verified (2)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 7. Voter Rights Quick Guide -->
+                <section class="mt-5 mb-4">
+                    <h3>Voter Rights Quick Guide</h3>
+                    <div class="grid-3-col mt-3">
+                        <div class="card text-center hover-card" data-dashboard-link="voter-rights-page" style="cursor:pointer;">
+                            <i class="fa-solid fa-user-shield fa-2x blue mb-2"></i>
+                            <h4>Right to Privacy</h4>
+                            <p class="text-sm text-secondary">Your vote is strictly confidential.</p>
+                        </div>
+                        <div class="card text-center hover-card" data-dashboard-link="voter-rights-page" style="cursor:pointer;">
+                            <i class="fa-solid fa-scale-balanced fa-2x saffron mb-2"></i>
+                            <h4>Right to Complain</h4>
+                            <p class="text-sm text-secondary">Report any malpractice safely.</p>
+                        </div>
+                        <div class="card text-center hover-card" data-dashboard-link="voter-rights-page" style="cursor:pointer;">
+                            <i class="fa-solid fa-circle-info fa-2x green-text mb-2"></i>
+                            <h4>Right to Information</h4>
+                            <p class="text-sm text-secondary">Know your candidates' details fully.</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ============================================== -->
+            <!-- FEATURE PAGES (Authenticated Only) -->
+            <!-- ============================================== -->
+            <!-- 2. AI Chatbot Page -->
+            <section id="chatbot-page" class="page">
+                <div class="page-header">
+                    <h2>AI Election FAQ Assistant</h2>
+                </div>
+                <div class="chat-container card mt-4">
+                    <div class="chat-history" id="chat-history"></div>
+                    <div class="chat-input-area">
+                        <input type="text" placeholder="Ask about registration, voting process..." id="chat-input">
+                        <button class="btn btn-secondary" id="voice-input-btn" title="Voice Input"><i class="fa-solid fa-microphone"></i></button>
+                        <button class="btn btn-primary send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                    <div id="voice-status" class="text-secondary text-sm mt-2 hidden text-center"><i class="fa-solid fa-circle-dot fa-fade text-danger"></i> Listening...</div>
+                </div>
+            </section>
+
+            <!-- 3. Election Process Page -->
+            <section id="process-page" class="page">
+                <h2>Election Process Guide</h2>
+                <div class="timeline-ui process-timeline mt-4">
+                    <div class="timeline-item">
+                        <div class="timeline-marker border-saffron saffron-text">1</div>
+                        <div class="timeline-content card">
+                            <h3>Voter Registration</h3>
+                            <p>Register online or offline via Form 6.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. First-Time Voter Page -->
+            <section id="first-time-page" class="page">
+                <h2>First-Time Voter Guide</h2>
+                <div class="grid-2-col mt-4">
+                    <div class="card"><h3>Checklist</h3><p>Age Proof, Address Proof, Photo.</p></div>
+                    <div class="card"><h3>Inside Booth</h3><p>Verify name, get ink, press EVM button.</p></div>
+                </div>
+            </section>
+
+            <!-- 5. Eligibility Page -->
+            <section id="eligibility-page" class="page">
+                <h2>Check Voting Eligibility</h2>
+                <div class="card mt-4"><form id="eligibility-form"><div class="form-group"><label>Indian Citizen?</label><select required><option value="yes">Yes</option><option value="no">No</option></select></div><div class="form-group"><label>Date of Birth</label><input type="date" required id="dob-input"></div><button type="submit" class="btn btn-primary w-100">Check</button></form><div id="eligibility-result" class="hidden mt-3"></div></div>
+            </section>
+
+            <!-- 6. Timeline Page -->
+            <section id="timeline-page" class="page">
+                <h2>Election Timeline</h2>
+                <div class="timeline-ui mt-4"></div>
+            </section>
+
+            <!-- 7. Booth Page -->
+            <section id="booth-page" class="page">
+                <h2>Booth Finder</h2>
+                <div class="card mt-4"><div class="large-search"><input type="text" placeholder="Enter ZIP or Locality"><button class="btn btn-primary">Find</button></div></div>
+                <div class="booth-results mt-4"></div>
+                <div class="map-mock mt-4"><i class="fa-solid fa-map-location-dot"></i><p>Map View</p></div>
+            </section>
+
+            <!-- 8. Candidate Page -->
+            <section id="candidate-page" class="page">
+                <h2>Compare Candidates</h2>
+                <div class="comparison-grid mt-4"></div>
+            </section>
+
+            <!-- 9. Fake News Page -->
+            <section id="fakenews-page" class="page">
+                <h2>Fake News Checker</h2>
+                <div class="card mt-4 text-center">
+                    <textarea rows="4" class="form-control mb-3" placeholder="Paste claim here..."></textarea>
+                    <button class="btn btn-primary btn-lg"><i class="fa-solid fa-magnifying-glass"></i> Verify Claim</button>
+                </div>
+                <div class="trust-result-card card mt-4 hidden"></div>
+            </section>
+
+            <!-- 10. Complaint Page -->
+            <section id="complaint-page" class="page">
+                <h2>Complaint Assistant</h2>
+                <div class="card mt-4">
+                    <form>
+                        <div class="form-group"><label>Violation Type</label><select><option>Bribery</option><option>Hate Speech</option></select></div>
+                        <div class="form-group"><label>Description</label><textarea rows="3"></textarea></div>
+                        <button type="submit" class="btn btn-danger w-100">Submit Complaint</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 11. Accessibility Page -->
+            <section id="accessibility-page" class="page">
+                <h2>Accessibility & Support</h2>
+                <div class="grid-2-col mt-4">
+                    <div class="card">
+                        <h4 class="mb-3"><i class="fa-solid fa-eye blue"></i> Visual Settings</h4>
+                        <div class="setting-card">
+                            <div class="setting-info"><h4>Large Text Mode</h4><p>Increase global font size</p></div>
+                            <label class="switch"><input type="checkbox" id="text-size-toggle"><span class="slider round"></span></label>
+                        </div>
+                        <div class="setting-card mt-3">
+                            <div class="setting-info"><h4>Simple UI Mode</h4><p>Remove backgrounds for better focus</p></div>
+                            <label class="switch"><input type="checkbox" id="simple-ui-toggle"><span class="slider round"></span></label>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4 class="mb-3"><i class="fa-solid fa-ear-listen saffron-text"></i> Audio & Language</h4>
+                        <div class="setting-card">
+                            <div class="setting-info"><h4>Voice Guide</h4><p>Read out screen instructions</p></div>
+                            <button class="btn btn-sm btn-primary" id="voice-guide-btn"><i class="fa-solid fa-volume-high"></i> Read</button>
+                        </div>
+                        <div class="setting-card mt-3">
+                            <div class="setting-info"><h4>Language</h4><p>Choose your preferred language</p></div>
+                            <select class="form-control w-auto" id="accessibility-language-select">
+                                <option value="en">English</option>
+                                <option value="hi">Hindi (हिंदी)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4 border-green">
+                    <h4><i class="fa-solid fa-wifi"></i> Low-Data / Offline Guide</h4>
+                    <p class="mt-2 text-sm text-secondary">If your connection drops, remember these 3 steps to vote: 1. Carry Voter ID. 2. Verify name on polling slip. 3. Press EVM button next to your candidate.</p>
+                </div>
+            </section>
+
+            <!-- ============================================== -->
+            <!-- PROFILE & SETTINGS PAGES (Authenticated Only) -->
+            <!-- ============================================== -->
+            
+            <!-- Reminders Page -->
+            <section id="reminders-page" class="page">
+                <h2>Election Reminders</h2>
+                <div class="card mt-4">
+                    <form id="reminder-form">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" id="reminder-title" required placeholder="e.g. Registration Deadline">
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="reminder-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select id="reminder-type">
+                                <option value="Registration">Registration</option>
+                                <option value="Voting">Voting day</option>
+                                <option value="Counting">Counting day</option>
+                                <option value="Result">Result day</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Save Reminder</button>
+                    </form>
+                </div>
+                <h3 class="mt-4">Upcoming Reminders <i class="fa-solid fa-bell saffron-text"></i></h3>
+                <div id="reminders-list" class="mt-3">
+                    <p class="text-secondary text-center">Loading reminders...</p>
+                </div>
+            </section>
+
+            <!-- Myth vs Fact Page -->
+            <section id="myth-facts-page" class="page">
+                <div class="page-header">
+                    <h2>Myth vs Fact Checker</h2>
+                    <p class="text-secondary">Explore common election myths and the actual facts.</p>
+                </div>
+                <div class="mt-3 mb-4">
+                    <input type="text" id="myth-search" placeholder="Search myths..." class="form-control" style="width:100%">
+                </div>
+                <div id="myth-container" class="mt-3 grid-2-col">
+                    <p class="text-secondary text-center" style="grid-column: span 2;">Loading myths...</p>
+                </div>
+            </section>
+
+            <!-- Quiz Mode Page -->
+            <section id="quiz-page" class="page">
+                <h2>Election Quiz Mode</h2>
+                <div id="quiz-intro" class="card mt-4 text-center">
+                    <h3>Test your election knowledge!</h3>
+                    <p class="text-secondary mt-2">Topics include Voter Rights, Election Process, and Eligibility.</p>
+                    <button class="btn btn-primary btn-lg mt-3" id="start-quiz-btn">Start Quiz</button>
+                </div>
+                <div id="quiz-active" class="card mt-4 hidden">
+                    <div class="d-flex justify-content-between mb-3 text-secondary text-sm">
+                        <span>Question <span id="quiz-current-q">1</span>/<span id="quiz-total-q">0</span></span>
+                        <span><i class="fa-regular fa-clock"></i> <span id="quiz-timer">30</span>s</span>
+                    </div>
+                    <h3 id="quiz-question-text" class="mb-4">Loading question...</h3>
+                    <div id="quiz-options" class="grid-2-col">
+                        <!-- Options generated dynamically -->
+                    </div>
+                    <div id="quiz-feedback" class="mt-4 hidden p-3 radius-md border-saffron"></div>
+                    <button class="btn btn-secondary w-100 mt-4 hidden" id="quiz-next-btn">Next Question</button>
+                </div>
+                <div id="quiz-result" class="card mt-4 hidden text-center border-green">
+                    <h3 class="green-text"><i class="fa-solid fa-trophy"></i> Quiz Completed!</h3>
+                    <h1 class="mt-3 mb-3"><span id="quiz-final-score">0</span> / <span id="quiz-max-score">0</span></h1>
+                    <p>Great job! Keep educating yourself on election processes.</p>
+                    <button class="btn btn-primary mt-3" onclick="navigateTo('dashboard-page')">Back to Dashboard</button>
+                    <button class="btn btn-secondary mt-3" id="quiz-retry-btn">Try Again</button>
+                </div>
+            </section>
+
+            <!-- Voter Rights Page -->
+            <section id="voter-rights-page" class="page">
+                <div class="page-header">
+                    <h2>Voter Rights Guide</h2>
+                    <p class="text-secondary">Know your rights as an Indian Citizen.</p>
+                </div>
+                <div class="grid-2-col mt-4">
+                    <div class="card border-blue">
+                        <h4><i class="fa-solid fa-person-booth blue"></i> Right to Vote</h4>
+                        <p class="mt-2">Every citizen aged 18+ has the fundamental right to vote without discrimination.</p>
+                    </div>
+                    <div class="card border-saffron">
+                        <h4><i class="fa-solid fa-user-secret saffron-text"></i> Right to Privacy</h4>
+                        <p class="mt-2">The secrecy of your ballot is guaranteed. Nobody can force you to reveal who you voted for.</p>
+                    </div>
+                    <div class="card border-green">
+                        <h4><i class="fa-solid fa-circle-info green-text"></i> Right to Information</h4>
+                        <p class="mt-2">Voters have the right to know the financial and criminal background of candidates.</p>
+                    </div>
+                    <div class="card border-dark">
+                        <h4><i class="fa-solid fa-bullhorn dark"></i> Right to Complaint</h4>
+                        <p class="mt-2">You can complain against any electoral malpractice, fraud, or violation of the Model Code of Conduct.</p>
+                    </div>
+                    <div class="card border-blue" style="grid-column: span 2;">
+                        <h4><i class="fa-solid fa-ban blue"></i> Right Not to Vote (NOTA)</h4>
+                        <p class="mt-2">You have the right to register a "None of the Above" vote if you feel no candidate is suitable.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Smart Booth Finder Page -->
+            <section id="smart-finder-page" class="page">
+                <div class="page-header">
+                    <h2>Smart Booth Finder <i class="fa-solid fa-map-location-dot"></i></h2>
+                    <p class="text-secondary">Find your polling booth, get directions, and check live queue status.</p>
+                </div>
+                
+                <div class="card mt-4 border-blue">
+                    <form id="booth-search-form" class="d-flex" style="gap:10px;">
+                        <input type="text" id="booth-search-input" class="form-control" placeholder="Search by City, Area, or Pin..." required>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
+                    </form>
+                    <div class="mt-3 text-center">
+                        <span class="text-secondary text-sm">OR</span>
+                    </div>
+                    <button class="btn btn-secondary w-100 mt-3" id="find-nearby-btn">
+                        <i class="fa-solid fa-location-crosshairs text-danger"></i> Find Nearby Booths (Demo Mode)
+                    </button>
+                </div>
+
+                <div id="booth-results-container" class="mt-4 grid-2-col hidden">
+                    <!-- Booth cards will be injected here -->
+                </div>
+                
+                <div id="google-map-container" style="height: 400px; width: 100%; border-radius: 8px;" class="mt-4 hidden card p-0 border-blue overflow-hidden"></div>
+
+                <!-- Route Guidance Modal / Panel -->
+                <div id="route-guidance-panel" class="card mt-4 border-saffron hidden bg-saffron-light">
+                    <h4><i class="fa-solid fa-route saffron-text"></i> Route Guidance</h4>
+                    <p class="mt-2 text-sm" id="route-destination-text">Destination: ...</p>
+                    <div class="d-flex justify-content-between mt-3 align-items-center">
+                        <div>
+                            <span class="fw-bold" id="route-time">-- min</span>
+                            <span class="text-secondary text-sm block" id="route-distance">-- km</span>
+                        </div>
+                        <i class="fa-solid fa-person-walking fa-2x blue"></i>
+                    </div>
+                    <p class="mt-3 text-sm text-secondary p-2 radius-sm border-top"><i class="fa-solid fa-circle-info"></i> Following shortest route based on current traffic conditions.</p>
+                    <button class="btn btn-secondary w-100 mt-2" onclick="document.getElementById('route-guidance-panel').classList.add('hidden')">Close Route</button>
+                </div>
+            </section>
+
+            <!-- Voter Readiness Page -->
+            <section id="readiness-page" class="page">
+                <div class="page-header">
+                    <h2>Voter Readiness Check <i class="fa-solid fa-list-check green-text"></i></h2>
+                    <p class="text-secondary">Find out if you are ready to vote and what documents you need.</p>
+                </div>
+
+                <div class="card mt-4" id="readiness-form-container">
+                    <form id="readiness-form">
+                        <div class="form-group">
+                            <label>Are you an Indian Citizen?</label>
+                            <select id="read-nationality" required>
+                                <option value="Indian">Yes</option>
+                                <option value="Other">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Age</label>
+                            <input type="number" id="read-age" required min="10" max="120" placeholder="e.g. 18">
+                        </div>
+                        <div class="form-group">
+                            <label>Are you registered to vote (Name on Electoral Roll)?</label>
+                            <select id="read-registered" required>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No, or not sure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>State / Union Territory</label>
+                            <input type="text" id="read-state" required placeholder="e.g. Maharashtra">
+                        </div>
+                        <div class="form-group">
+                            <label>Is this your first time voting?</label>
+                            <select id="read-first-time">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Check My Readiness</button>
+                    </form>
+                </div>
+
+                <!-- Readiness Result -->
+                <div id="readiness-result-container" class="mt-4 hidden">
+                    <div class="card text-center mb-4 border-top" id="readiness-score-card">
+                        <h3 id="readiness-score-text">Ready to Vote</h3>
+                        <p class="text-secondary mt-2" id="readiness-score-desc">You have met all the basic criteria.</p>
+                    </div>
+
+                    <div id="missing-steps-container" class="card border-danger mb-4 hidden">
+                        <h4 class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Missing Steps</h4>
+                        <ul id="missing-steps-list" class="mt-2 ms-4" style="text-align: left; padding-left: 20px;"></ul>
+                    </div>
+
+                    <div class="card border-blue" id="document-checklist-card">
+                        <h4><i class="fa-solid fa-file-lines blue"></i> Mandatory Document Checklist</h4>
+                        <p class="text-secondary text-sm mt-1 mb-3">Carry at least ONE of these to the polling booth:</p>
+                        <ul class="ms-4" style="padding-left: 20px; line-height: 1.8;">
+                            <li><input type="checkbox" class="doc-check"> Voter ID Card (EPIC)</li>
+                            <li><input type="checkbox" class="doc-check"> Aadhar Card</li>
+                            <li><input type="checkbox" class="doc-check"> PAN Card</li>
+                            <li><input type="checkbox" class="doc-check"> Indian Passport</li>
+                            <li><input type="checkbox" class="doc-check"> Driving License</li>
+                        </ul>
+                        <hr class="mt-3 mb-3">
+                        <p class="text-secondary text-sm mb-3">Optional but recommended:</p>
+                        <ul class="ms-4" style="padding-left: 20px; line-height: 1.8;">
+                            <li><input type="checkbox" class="doc-check"> Voter Information Slip</li>
+                        </ul>
+                        <div class="d-flex justify-content-between mt-4" style="gap:10px;">
+                            <button class="btn btn-primary w-100" id="save-checklist-btn">Save Progress</button>
+                            <button class="btn btn-secondary w-100" id="print-checklist-btn"><i class="fa-solid fa-print"></i> Print</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Help & Complaint Center Page -->
+            <section id="help-center-page" class="page">
+                <div class="page-header">
+                    <h2><span data-translate="help_center_title">Help & Complaint Center</span> <i class="fa-solid fa-headset blue"></i></h2>
+                    <p class="text-secondary" data-translate="help_center_subtitle">Solve election issues or file official complaints.</p>
+                </div>
+
+                <div class="grid-2-col mt-4">
+                    <div class="card border-danger">
+                        <h4><i class="fa-solid fa-truck-medical text-danger"></i> <span data-translate="help_emergency">Emergency Help</span></h4>
+                        <ul class="mt-2 text-sm" style="line-height: 1.8;">
+                            <li><i class="fa-solid fa-phone"></i> Election Helpline: <strong>1950</strong></li>
+                            <li><i class="fa-solid fa-shield-halved"></i> Police Control Room: <strong>100</strong></li>
+                            <li><i class="fa-solid fa-truck-medical"></i> Ambulance: <strong>108</strong></li>
+                        </ul>
+                    </div>
+                    <div class="card border-blue">
+                        <h4><i class="fa-solid fa-robot blue"></i> AI Help Assistant</h4>
+                        <p class="text-sm mt-2">Describe your issue before filing a complaint, our AI might solve it instantly.</p>
+                        <div class="d-flex mt-2" style="gap:5px;">
+                            <input type="text" id="ai-help-input" class="form-control text-sm" placeholder="e.g., My name is missing from the list...">
+                            <button class="btn btn-sm btn-secondary" id="ai-help-btn">Ask</button>
+                        </div>
+                        <div id="ai-help-response" class="mt-2 text-sm text-secondary hidden p-2 bg-light radius-sm border-saffron"></div>
+                    </div>
+                </div>
+
+                <div class="card mt-4 border-saffron">
+                    <h4><i class="fa-solid fa-file-signature saffron-text"></i> File a Complaint</h4>
+                    <form id="complaint-center-form" class="mt-3">
+                        <div class="grid-2-col" style="gap: 15px;">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="comp-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="comp-email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="comp-category" required>
+                                <option value="Missing voter name">Missing voter name</option>
+                                <option value="Wrong polling booth">Wrong polling booth</option>
+                                <option value="Registration problem">Registration problem</option>
+                                <option value="ID/document issue">ID/document issue</option>
+                                <option value="Voting rights issue">Voting rights issue</option>
+                                <option value="Accessibility issue">Accessibility issue</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="comp-desc" rows="3" required placeholder="Describe the issue in detail..."></textarea>
+                        </div>
+                        <div class="grid-2-col" style="gap: 15px;">
+                            <div class="form-group">
+                                <label>Location (Optional)</label>
+                                <input type="text" id="comp-location" placeholder="City or Polling Booth">
+                            </div>
+                            <div class="form-group">
+                                <label>Proof/Evidence URL (Optional)</label>
+                                <input type="text" id="comp-proof" placeholder="Link to image/video">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Submit Official Complaint</button>
+                    </form>
+                </div>
+
+                <div class="mt-4">
+                    <h4>Your Complaint History</h4>
+                    <div id="complaint-history-container" class="mt-3">
+                        <p class="text-secondary text-center">Loading history...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Page -->
+            <section id="profile-page" class="page">
+                <div class="card mt-4 text-center" style="max-width: 600px; margin: 0 auto;">
+                    <div class="cand-avatar mx-auto mb-3" style="width: 100px; height: 100px; font-size: 3rem;"><i class="fa-solid fa-user blue"></i></div>
+                    <h2 id="view-profile-name">Loading...</h2>
+                    <p id="view-profile-email" class="text-secondary mb-4">loading@votevision.com</p>
+                    <button class="btn btn-primary" onclick="navigateTo('edit-profile-page')"><i class="fa-solid fa-user-pen"></i> Edit Profile</button>
+                </div>
+            </section>
+
+            <!-- Edit Profile Page -->
+            <section id="edit-profile-page" class="page">
+                <h2>Edit Profile</h2>
+                <div class="card mt-4" style="max-width: 600px; margin: 0 auto;">
+                    <form id="edit-profile-form">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="edit-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="edit-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>New Password (Optional)</label>
+                            <input type="password" id="edit-password" placeholder="Leave blank to keep current">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" id="edit-profile-btn">Save Changes</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Settings Page -->
+            <section id="settings-page" class="page">
+                <h2>Account Settings</h2>
+                <div class="card mt-4" style="max-width: 600px; margin: 0 auto;">
+                    <p class="text-secondary mb-4">Manage your global preferences.</p>
+                    <div class="setting-card">
+                        <div class="setting-info"><h4>Dark Mode</h4><p>Toggle dark theme globally</p></div>
+                        <label class="switch"><input type="checkbox" id="page-theme-toggle"><span class="slider round"></span></label>
+                    </div>
+                    <button class="btn btn-secondary w-100 mt-4" onclick="navigateTo('accessibility-page')"><i class="fa-solid fa-universal-access"></i> Go to Accessibility Options</button>
+                </div>
+            </section>
+
+            <!-- Notifications Page -->
+            <section id="notifications-page" class="page">
+                <h2>Notifications & Alerts <i class="fa-solid fa-bell saffron-text"></i></h2>
+                <div class="mt-4" id="notifications-container">
+                    <p class="text-center text-secondary">Loading notifications...</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content card">
+            <span class="close-modal" onclick="document.getElementById('loginModal').classList.add('hidden')">&times;</span>
+            <h2 class="mb-4 text-center">Login to VoteVision</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label data-translate="label_email">Email</label>
+                    <input type="email" id="login-email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label data-translate="label_password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" data-translate="btn_login">Login</button>
+            </form>
+            <p class="mt-4 text-center text-sm">
+                <span>Don't have an account?</span> 
+                <a href="#" id="switchToSignup" class="blue fw-bold">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal hidden">
+        <div class="modal-content card">
+            <span class="close-modal" onclick="document.getElementById('signupModal').classList.add('hidden')">&times;</span>
+            <h2 class="mb-4 text-center">Create an Account</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label data-translate="label_name">Full Name</label>
+                    <input id="signup-fullName" name="fullName" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label data-translate="label_email">Email</label>
+                    <input type="email" id="signup-email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label data-translate="label_password">Password</label>
+                    <input type="password" id="signup-password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+            <p class="mt-4 text-center text-sm">
+                <span>Already have an account?</span> 
+                <a href="#" id="switchToLogin" class="blue fw-bold">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/script.js"></script>
+    <script src="js/features.js"></script>
+</body>
+</html>

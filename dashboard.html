@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteVision Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Load Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <main class="main-content" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+        <section class="card" style="width: min(92vw, 640px);">
+            <div class="page-header">
+                <h1>VoteVision Dashboard</h1>
+                <p class="text-secondary" id="dashboard-status">Checking your session...</p>
+            </div>
+            <div class="mt-4">
+                <h2 id="dashboard-name">Welcome</h2>
+                <p id="dashboard-email" class="text-secondary"></p>
+            </div>
+            <div class="mt-4 d-flex" style="gap: 12px; flex-wrap: wrap;">
+                <a class="btn btn-primary" href="index.html">Back to Home</a>
+                <button class="btn btn-secondary" id="logout-button" type="button">Logout</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const SUPABASE_URL = 'https://cnfscdacqfkxrwcebhji.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_ufREQ5Zc_0ZX7Gc5QtR46w_-Dy1eJxd';
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const statusEl = document.getElementById('dashboard-status');
+        const nameEl = document.getElementById('dashboard-name');
+        const emailEl = document.getElementById('dashboard-email');
+        const logoutButton = document.getElementById('logout-button');
+
+        async function initDashboard() {
+            try {
+                // Check active session natively via Supabase
+                const { data } = await supabaseClient.auth.getSession();
+                if (!data.session) {
+                  window.location.href = "index.html";
+                } else {
+                  const fullName = data.session.user.user_metadata?.full_name || data.session.user.email;
+                  nameEl.textContent = `Welcome, ${fullName}`;
+                  emailEl.textContent = data.session.user.email;
+                  statusEl.textContent = 'You are logged in and ready to use VoteVision via Supabase!';
+                }
+            } catch (err) {
+                console.error('Dashboard auth check failed:', err.message);
+                statusEl.textContent = err.message;
+            }
+        }
+
+        // Initialize
+        initDashboard();
+
+        // Handle Logout
+        logoutButton.addEventListener('click', async () => {
+            statusEl.textContent = 'Logging out...';
+            await supabaseClient.auth.signOut();
+            window.location.href = 'index.html';
+        });
+
+        // Listen for realtime auth changes (e.g. logging out from another tab)
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_OUT') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+    "nav_home": "Home",
+    "nav_about": "About",
+    "nav_process": "Election Process",
+    "nav_voter_rights": "Voter Rights",
+    "nav_booth_finder": "Booth Finder",
+    "nav_readiness": "Readiness",
+    "nav_help_center": "Help Center",
+    "nav_profile": "Profile",
+    "nav_logout": "Logout",
+    "nav_login_register": "Login / Register",
+    
+    "hero_title": "VoteVision",
+    "hero_subtitle": "Your Smart Election Assistant",
+    "hero_desc": "Empowering citizens by making the election process simple, transparent, and accessible. Understand elections, track timelines, and vote smart.",
+    "hero_btn_login": "Login to Access",
+    "hero_btn_register": "Register Now",
+    
+    "feat_title": "Platform Features",
+    "feat_desc": "Create an account to access these intelligent election tools.",
+    
+    "feat_chatbot": "AI Chatbot",
+    "feat_chatbot_desc": "Ask our AI any election-related question.",
+    "feat_compare": "Compare Candidates",
+    "feat_compare_desc": "Side-by-side comparison of local leaders.",
+    "feat_fakenews": "Fake News Checker",
+    "feat_fakenews_desc": "Verify political claims instantly.",
+    "hero_btn_learn": "Learn More",
+    
+    "feat_chatbot": "AI Election Chatbot",
+    "feat_booth": "Smart Booth Finder",
+    "feat_readiness": "Voter Readiness",
+    "feat_help": "Help & Complaint",
+    
+    "btn_submit": "Submit",
+    "btn_search": "Search",
+    "btn_login": "Login",
+    "btn_register": "Register",
+    
+    "help_center_title": "Help & Complaint Center",
+    "help_center_subtitle": "Solve election issues or file official complaints.",
+    "help_emergency": "Emergency Help",
+    "help_ai_assistant": "AI Help Assistant",
+    "help_file_complaint": "File a Complaint",
+    "help_complaint_history": "Your Complaint History",
+    "help_btn_ask": "Ask",
+    
+    "dashboard_welcome": "Welcome",
+    "dashboard_title": "Your Election Dashboard",
+    
+    "auth_login_title": "Login",
+    "auth_register_title": "Register",
+    "auth_name_label": "Full Name",
+    "auth_email_label": "Email",
+    "auth_password_label": "Password"
+}
