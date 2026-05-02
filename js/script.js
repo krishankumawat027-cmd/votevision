@@ -84,334 +84,364 @@ document.addEventListener("DOMContentLoaded", async () => {
     ];
     const DEMO_QUIZ = [
     {
-        "question": "Sample Question 1 about Registration process?",
+        "question": "What is the minimum age to vote in India?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "16",
+            "18",
+            "21",
+            "25"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 1."
+        "answer": "18",
+        "explanation": "The 61st Amendment Act of 1988 lowered the voting age from 21 to 18.",
+        "category": "Voting eligibility"
     },
     {
-        "question": "Sample Question 2 about Polling booth rules?",
+        "question": "Which document is NOT accepted as identity proof at polling booths?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Aadhaar Card",
+            "PAN Card",
+            "Ration Card without photo",
+            "Driving License"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 2."
+        "answer": "Ration Card without photo",
+        "explanation": "Only photo ID cards approved by the ECI are valid. A non-photo Ration Card is not accepted.",
+        "category": "Voter ID/documents"
     },
     {
-        "question": "Sample Question 3 about Voter rights?",
+        "question": "What does NOTA stand for?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "None of the Above",
+            "Notice of Transfer Action",
+            "New Option To Apply",
+            "National Officer Tracking App"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 3."
+        "answer": "None of the Above",
+        "explanation": "NOTA allows voters to officially reject all contesting candidates.",
+        "category": "Voter rights"
     },
     {
-        "question": "Sample Question 4 about Fake news awareness?",
+        "question": "Who appoints the Chief Election Commissioner of India?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Prime Minister",
+            "President of India",
+            "Chief Justice",
+            "Parliament"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 4."
+        "answer": "President of India",
+        "explanation": "The President appoints the CEC based on the recommendation of a selection committee.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 5 about Election timeline?",
+        "question": "What is VVPAT?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Voter Verified Paper Audit Trail",
+            "Voting Verification Process Action Team",
+            "Valid Voter Process Authorization Ticket",
+            "None of these"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 5."
+        "answer": "Voter Verified Paper Audit Trail",
+        "explanation": "VVPAT provides a printed slip for voters to verify that their vote was cast correctly.",
+        "category": "Polling booth rules"
     },
     {
-        "question": "Sample Question 6 about Complaint process?",
+        "question": "Can you vote online in India?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Yes, via the ECI website",
+            "Yes, using Aadhaar OTP",
+            "No, voting requires physical presence or postal ballot",
+            "Yes, through an app"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 6."
+        "answer": "No, voting requires physical presence or postal ballot",
+        "explanation": "Currently, India does not allow online voting. E-voting is only for specific service voters via Postal Ballots.",
+        "category": "Fake news awareness"
     },
     {
-        "question": "Sample Question 7 about Voting eligibility?",
+        "question": "Which form is used for new voter registration?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Form 6",
+            "Form 7",
+            "Form 8",
+            "Form 6A"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 7."
+        "answer": "Form 6",
+        "explanation": "Form 6 is the application form for new voters to get enrolled in the electoral roll.",
+        "category": "Voter registration"
     },
     {
-        "question": "Sample Question 8 about Registration process?",
+        "question": "When is National Voters Day celebrated?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "January 25",
+            "August 15",
+            "October 2",
+            "November 26"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 8."
+        "answer": "January 25",
+        "explanation": "National Voters Day is celebrated on January 25 to mark the foundation of the Election Commission in 1950.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 9 about Polling booth rules?",
+        "question": "What is the maximum limit of candidates an EVM can cater to?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "16",
+            "32",
+            "64",
+            "384"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 9."
+        "answer": "384",
+        "explanation": "One ballot unit accommodates 16 candidates. Up to 24 units can be connected to support 384 candidates including NOTA.",
+        "category": "Polling booth rules"
     },
     {
-        "question": "Sample Question 10 about Voter rights?",
+        "question": "Is possessing a Voter ID enough to vote?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Yes",
+            "No",
+            "Only for State Elections",
+            "Only for National Elections"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 10."
+        "answer": "No",
+        "explanation": "Your name MUST be on the electoral roll. Having an ID card is not enough if your name is missing.",
+        "category": "Voter ID/documents"
     },
     {
-        "question": "Sample Question 11 about Fake news awareness?",
+        "question": "Which body conducts elections for Municipal Corporations?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Election Commission of India",
+            "State Election Commission",
+            "Parliament",
+            "Local District Magistrate"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 11."
+        "answer": "State Election Commission",
+        "explanation": "Local body elections (Panchayats and Municipalities) are conducted by the respective State Election Commissions.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 12 about Election timeline?",
+        "question": "Can a non-resident Indian (NRI) vote?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Yes",
+            "No",
+            "Only if they pay tax",
+            "Only online"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 12."
+        "answer": "Yes",
+        "explanation": "NRIs can vote if they register as an overseas elector using Form 6A and cast their vote in person.",
+        "category": "Voting eligibility"
     },
     {
-        "question": "Sample Question 13 about Complaint process?",
+        "question": "How many days before polling does campaigning stop?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "24 hours",
+            "48 hours",
+            "72 hours",
+            "12 hours"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 13."
+        "answer": "48 hours",
+        "explanation": "Public campaigning must stop 48 hours before the conclusion of the poll.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 14 about Voting eligibility?",
+        "question": "What is the Model Code of Conduct?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "A set of guidelines for candidates and parties",
+            "A law passed by Parliament",
+            "A penal code for voters",
+            "A manual for EVM operation"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 14."
+        "answer": "A set of guidelines for candidates and parties",
+        "explanation": "The MCC regulates the conduct of political parties and candidates during elections.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 15 about Registration process?",
+        "question": "Can prisoners vote in India?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Yes",
+            "No",
+            "Only undertrials",
+            "Only those in civil prison"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 15."
+        "answer": "No",
+        "explanation": "Under Section 62(5) of the RPA, persons confined in a prison or in police custody cannot vote.",
+        "category": "Voting eligibility"
     },
     {
-        "question": "Sample Question 16 about Polling booth rules?",
+        "question": "Which ink is used to mark the voter\u2019s finger?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Silver Nitrate",
+            "Potassium Permanganate",
+            "Sodium Chloride",
+            "Lead Oxide"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 16."
+        "answer": "Silver Nitrate",
+        "explanation": "Indelible ink contains silver nitrate which stains the skin and prevents multiple voting.",
+        "category": "Polling booth rules"
     },
     {
-        "question": "Sample Question 17 about Voter rights?",
+        "question": "What form is used to correct details on the Voter ID?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Form 6",
+            "Form 7",
+            "Form 8",
+            "Form 6B"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 17."
+        "answer": "Form 8",
+        "explanation": "Form 8 is used for correction of particulars, shifting of residence, or replacement of EPIC.",
+        "category": "Voter registration"
     },
     {
-        "question": "Sample Question 18 about Fake news awareness?",
+        "question": "What is the tenure of the Chief Election Commissioner?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "5 years",
+            "6 years or up to age 65",
+            "4 years",
+            "Until the President decides"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 18."
+        "answer": "6 years or up to age 65",
+        "explanation": "The CEC serves a term of 6 years or until the age of 65, whichever is earlier.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 19 about Election timeline?",
+        "question": "Who was the first Chief Election Commissioner of India?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "T.N. Seshan",
+            "Sukumar Sen",
+            "Sunil Arora",
+            "V.S. Ramadevi"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 19."
+        "answer": "Sukumar Sen",
+        "explanation": "Sukumar Sen was the first CEC, serving from 1950 to 1958.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 20 about Complaint process?",
+        "question": "Can a candidate contest from more than two constituencies?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Yes",
+            "No",
+            "Only with special permission",
+            "Only in State Assembly"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 20."
+        "answer": "No",
+        "explanation": "According to the Representation of the People Act, a candidate can contest from a maximum of two constituencies.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 21 about Voting eligibility?",
+        "question": "Are political parties allowed to provide free transport to voters?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Yes",
+            "No",
+            "Only for elderly voters",
+            "Only in rural areas"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 21."
+        "answer": "No",
+        "explanation": "Providing free transport to voters is considered a corrupt practice under election laws.",
+        "category": "Polling booth rules"
     },
     {
-        "question": "Sample Question 22 about Registration process?",
+        "question": "What is the role of an Election Observer?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "To arrest violators",
+            "To count the votes",
+            "To monitor the election process independently",
+            "To distribute voter slips"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 22."
+        "answer": "To monitor the election process independently",
+        "explanation": "Observers are appointed by the ECI to ensure free and fair elections.",
+        "category": "Complaint process"
     },
     {
-        "question": "Sample Question 23 about Polling booth rules?",
+        "question": "What is the maximum election expenditure limit for a Lok Sabha constituency (as of 2024)?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "40 Lakhs",
+            "70 Lakhs",
+            "95 Lakhs",
+            "1.5 Crores"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 23."
+        "answer": "95 Lakhs",
+        "explanation": "The limit for larger states was raised to Rs 95 lakhs for Lok Sabha elections.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 24 about Voter rights?",
+        "question": "What happens if there is a tie between two candidates?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Re-election is held",
+            "The older candidate wins",
+            "A lottery/draw of lots decides the winner",
+            "The President decides"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 24."
+        "answer": "A lottery/draw of lots decides the winner",
+        "explanation": "If votes are equal, the Returning Officer decides the winner by a draw of lots.",
+        "category": "Election process"
     },
     {
-        "question": "Sample Question 25 about Fake news awareness?",
+        "question": "What is cVIGIL?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "A news app",
+            "An app to report MCC violations",
+            "An EVM tracking system",
+            "A candidate registration portal"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 25."
+        "answer": "An app to report MCC violations",
+        "explanation": "cVIGIL allows citizens to report violations of the Model Code of Conduct directly to the ECI.",
+        "category": "Complaint process"
     },
     {
-        "question": "Sample Question 26 about Election timeline?",
+        "question": "How can an illiterate voter cast their vote?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "They cannot vote",
+            "By identifying the party symbol",
+            "The Returning Officer votes for them",
+            "They must bring a literate relative"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 26."
+        "answer": "By identifying the party symbol",
+        "explanation": "EVMs have party symbols and Braille to assist illiterate or visually impaired voters.",
+        "category": "Voter rights"
     },
     {
-        "question": "Sample Question 27 about Complaint process?",
+        "question": "Is EVM connected to the Internet?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "Yes, via WiFi",
+            "Yes, via Bluetooth",
+            "No, it is a standalone machine",
+            "Yes, via satellite"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 27."
+        "answer": "No, it is a standalone machine",
+        "explanation": "EVMs do not have any communication interface and cannot be connected to any network.",
+        "category": "Fake news awareness"
     },
     {
-        "question": "Sample Question 28 about Voting eligibility?",
+        "question": "What is Form 7 used for?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "New registration",
+            "Deletion of name from the electoral roll",
+            "Correction of name",
+            "Aadhaar linkage"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 28."
+        "answer": "Deletion of name from the electoral roll",
+        "explanation": "Form 7 is used to object to an inclusion or seek deletion of a name.",
+        "category": "Voter registration"
     },
     {
-        "question": "Sample Question 29 about Registration process?",
+        "question": "Can you vote if you lose your Voter ID (EPIC)?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "No",
+            "Yes, using an alternative approved photo ID",
+            "Yes, but only in the last hour",
+            "Only with an FIR copy"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 29."
+        "answer": "Yes, using an alternative approved photo ID",
+        "explanation": "As long as your name is on the roll, you can use other IDs like Aadhaar, Passport, or PAN card.",
+        "category": "Voter ID/documents"
     },
     {
-        "question": "Sample Question 30 about Polling booth rules?",
+        "question": "What is the purpose of the Control Unit in an EVM?",
         "options": [
-            "Option A",
-            "Option B",
-            "Option C",
-            "Option D"
+            "To display candidates",
+            "To print the VVPAT slip",
+            "To control the Ballot Unit and store votes",
+            "To scan IDs"
         ],
-        "answer": "Option A",
-        "explanation": "This explains the correct answer for question 30."
+        "answer": "To control the Ballot Unit and store votes",
+        "explanation": "The Control Unit is kept with the Presiding Officer and it releases the ballot for the voter.",
+        "category": "Polling booth rules"
     }
 ];
     const DEMO_NOTIFICATIONS = [
@@ -926,7 +956,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         nextBtn?.classList.add("hidden");
 
-        optionsContainer.innerHTML = question.options
+        const shuffledOptions = [...question.options].sort(() => Math.random() - 0.5);
+        optionsContainer.innerHTML = shuffledOptions
             .map(
                 (option) => `
                 <button class="btn btn-secondary quiz-option-btn" data-option="${option}" type="button">
