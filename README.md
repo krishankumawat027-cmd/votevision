@@ -56,6 +56,11 @@ VoteVision is packed with high-utility tools:
 *   🔍 **Myth vs Fact:** Dispel common election rumors.
 *   📜 **Voter Rights Guide:** Learn your rights to privacy, information, and complaint.
 *   🇮🇳 **Hindi/English Support:** Full app-wide dynamic translation and localized AI responses.
+*   🎙️ **Voice Features:** Web Speech API integration for Chatbot dictation and Global Voice Guide (TTS) for accessibility.
+*   📊 **Dashboard Analytics & Tracker:** Track your readiness with a dynamic progress bar and Quick Stats.
+*   🆘 **Emergency Help:** Quick action hub for critical polling day issues (Name missing, ID lost, etc).
+*   🔍 **Quick Search:** Instantly jump to any feature from the navigation bar.
+*   💬 **Floating AI Assistant:** One-click global access to the election AI helper.
 
 ---
 
@@ -70,12 +75,9 @@ VoteVision is packed with high-utility tools:
 *   Node.js
 *   Express.js
 
-**Database:**
-*   MongoDB Atlas
-
-**Authentication & Security:**
-*   JSON Web Tokens (JWT)
-*   bcrypt (Password Hashing)
+**Database & Authentication:**
+*   Supabase (PostgreSQL)
+*   Supabase Auth (Secure Email/Password Sessions)
 
 **APIs & Integrations:**
 *   **Gemini API:** For the AI FAQ Assistant and Fake News Checker.
@@ -136,14 +138,17 @@ GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 
 ## ☁️ Deployment
 
-VoteVision is fully optimized for deployment on **Vercel**. 
-The repository includes a `vercel.json` configuration file that routes frontend assets correctly while configuring the backend Express app as serverless functions.
+VoteVision's final architecture is fully optimized for a separated frontend/backend deployment.
 
-To deploy:
+**Frontend (Vercel):**
 1. Push your code to GitHub.
 2. Import the repository into Vercel.
-3. Add your Environment Variables in the Vercel project settings.
-4. Click **Deploy**.
+3. Vercel will automatically use `vercel.json` to route all traffic to `index.html` (Single Page Application setup).
+
+**Backend (Render):**
+1. Import the same GitHub repository into Render as a Web Service.
+2. Set the build command to `npm install` and the start command to `npm start` or `node backend/server.js`.
+3. Add your Environment Variables (`SUPABASE_URL`, `SUPABASE_ANON_KEY`, `MONGO_URI` if used for legacy data, etc).
 
 ---
 
